@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jamie Nestor — Portfolio</title>
+  <meta name="description" content="Things I've built with AI — a curated portfolio of projects by Jamie Nestor.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Crimson+Pro:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="grain" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <h1 class="site-title">Jamie Nestor</h1>
+      <p class="tagline">Things I've built with AI</p>
+    </div>
+  </header>
+
+  <main>
+    <div id="projects-grid" class="grid"></div>
+    <div id="empty-state" class="empty-state" hidden>
+      <p>Nothing here yet.</p>
+    </div>
+  </main>
+
+  <div id="detail-overlay" class="overlay" aria-hidden="true">
+    <div class="overlay-backdrop"></div>
+    <div class="overlay-content">
+      <button class="close-btn" aria-label="Close project detail">&times;</button>
+      <div class="detail-gallery" id="detail-gallery"></div>
+      <div class="detail-text">
+        <h2 id="detail-title"></h2>
+        <p id="detail-description" class="detail-description"></p>
+        <div id="detail-features-section" class="detail-features-section">
+          <h3>What it does</h3>
+          <ul id="detail-features"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <p>Built by Jamie Nestor</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
