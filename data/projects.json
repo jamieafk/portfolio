@@ -45,7 +45,7 @@
         "Pure SwiftUI, no third-party dependencies",
         "Haptic feedback on successful save"
       ],
-      "screenshots": ["images/swish/screenshot.png"],
+      "screenshots": ["images/swish/screenshot.gif", "images/swish/screenshot.png"],
       "order": 3
     },
     {
