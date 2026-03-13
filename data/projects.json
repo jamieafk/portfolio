@@ -29,6 +29,7 @@
         "Smart duplicate detection and self-transfer exclusion",
         "Handles Wise, traditional banks, and credit card statements"
       ],
+      "screenshots": ["images/pfin/screenshot.png"],
       "order": 2
     },
     {
