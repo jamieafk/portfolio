@@ -1,3 +1,139 @@
 {
-  "projects": []
+  "projects": [
+    {
+      "slug": "asoona",
+      "title": "Asoona",
+      "description": "I built Asoona to coordinate my own projects — it's a self-hosted kanban app that tracks what I'm working on, where I left off, and what's blocking me. It doubles as the task management layer for my AI agent workflow, with a full REST API that Claude Code uses to stay in sync.",
+      "features": [
+        "Drag-and-drop kanban board with customizable columns",
+        "Project status headers (objective, where I left off, bottleneck)",
+        "Full REST API for programmatic task management",
+        "Portfolio and list views with filtering and sorting",
+        "Custom fields and automation rules per project",
+        "SQLite-backed with real-time optimistic updates via SWR",
+        "Trash and restore for deleted tasks"
+      ],
+      "order": 1
+    },
+    {
+      "slug": "pfin",
+      "title": "PFIN",
+      "description": "I built PFIN to make sense of my spending across multiple currencies and bank accounts. It processes bank statements from different sources, auto-categorizes transactions, and generates monthly summaries so I can see exactly where my money goes.",
+      "features": [
+        "Multi-currency support (USD, CAD, IDR) with unified reporting",
+        "Bank statement PDF parsing from multiple institutions",
+        "Automatic transaction categorization by merchant and pattern",
+        "Monthly spending summaries with category breakdowns",
+        "Financial goal tracker with visual progress dashboard",
+        "Smart duplicate detection and self-transfer exclusion",
+        "Handles Wise, traditional banks, and credit card statements"
+      ],
+      "order": 2
+    },
+    {
+      "slug": "swish",
+      "title": "Fling",
+      "description": "Fling is a single-purpose iOS app for getting thoughts out of your head as fast as possible. You open it, type, swipe up, and the note saves as a Markdown file to your configured folder. Inspired by the now-defunct Squarespace Note — minimal UI, satisfying gesture, zero friction.",
+      "features": [
+        "Swipe-up gesture to instantly save notes as Markdown files",
+        "iCloud Documents sync for cross-device access",
+        "Markdown syntax highlighting in the editor",
+        "Configurable save location via iOS folder picker",
+        "Security-scoped bookmarks for persistent folder access",
+        "Pure SwiftUI, no third-party dependencies",
+        "Haptic feedback on successful save"
+      ],
+      "order": 3
+    },
+    {
+      "slug": "health-dash",
+      "title": "HealthDash",
+      "description": "I wanted a single dashboard for all my Garmin health data without relying on the Garmin Connect app. HealthDash pulls metrics from my Garmin watch daily via an automated pipeline and renders everything in a static HTML dashboard I can open anytime.",
+      "features": [
+        "Automated daily data collection from Garmin Connect API",
+        "Static HTML dashboard with no server required",
+        "Sleep analysis with duration, stages, and trend tracking",
+        "Heart health metrics including resting HR, HRV, and VO2 max",
+        "Activity tracking with steps, calories, and workout history",
+        "Body composition trends (weight, hydration, respiration)",
+        "macOS launchd integration for hands-free daily updates"
+      ],
+      "order": 4
+    },
+    {
+      "slug": "copy-jamie",
+      "title": "Copy Jamie",
+      "description": "I built copyjamie.com as the foundation for my email copywriting portfolio. It's a static site with no framework — just clean HTML, CSS, and a touch of JavaScript. The actual email portfolio hasn't been added yet, but the site is live and designed to load fast, look sharp, and let the writing speak for itself.",
+      "features": [
+        "Static HTML/CSS site hosted on a custom domain",
+        "Responsive design that works across all devices",
+        "Contact page with a clean inquiry form",
+        "Privacy policy page for GDPR compliance",
+        "Custom favicon set (SVG, PNG, ICO)",
+        "Open Graph meta tags for social sharing",
+        "Zero dependencies, instant load times"
+      ],
+      "order": 5
+    },
+    {
+      "slug": "yt-transcripts",
+      "title": "YT Transcripts",
+      "description": "I built this to save time on long YouTube videos. It pulls transcripts from any YouTube video or channel, summarizes them with Claude, and can synthesize a creator's full body of work into a single overview. The Streamlit UI makes it easy to register channels and browse summaries.",
+      "features": [
+        "Pull transcripts from any YouTube video automatically",
+        "AI-powered summarization using Claude",
+        "Cross-video synthesis across a creator's entire catalogue",
+        "Channel and playlist registration for batch processing",
+        "Streamlit web UI for browsing and managing summaries",
+        "File-based data storage (no database required)",
+        "Per-video and per-creator markdown summaries"
+      ],
+      "order": 6
+    },
+    {
+      "slug": "bookwise",
+      "title": "Bookwise",
+      "description": "I wanted a lightweight way to track my reading without a heavyweight app. Bookwise is a browser-based book collection tracker that imports data from my Kindle, lets me manage my library, and keeps a wishlist — all in a single HTML file with local storage.",
+      "features": [
+        "Kindle data import for bulk library setup",
+        "Book collection management with search and filtering",
+        "Reading wishlist tracking",
+        "Review and rating system for finished books",
+        "JSON backup and restore for portability",
+        "Pure HTML/CSS/JS with no build step",
+        "Local storage persistence, no account required"
+      ],
+      "order": 7
+    },
+    {
+      "slug": "fetch-media-via-telegram",
+      "title": "Media Fetch Bot",
+      "description": "I built this Telegram bot to streamline how I discover and organize movies and TV shows. I send it an IMDB or TVDB link — or just a title — and it looks up the media, shows me the details, and adds it to my watchlist. All from a Telegram chat.",
+      "features": [
+        "IMDB and TVDB link parsing for instant media lookup",
+        "Plain text title search for movies and TV shows",
+        "Inline confirmation with poster and details before adding",
+        "Personal watchlist management via chat interface",
+        "Runs as a background service via macOS launchd",
+        "Single-user security with Telegram user ID whitelisting",
+        "Async Python with long-polling for responsive interaction"
+      ],
+      "order": 8
+    },
+    {
+      "slug": "brutalist-blog",
+      "title": "Brutalist Blog",
+      "description": "A personal blog and copywriting portfolio built with Eleventy. It has a deliberately raw, brutalist design aesthetic — no frills, no filler. Sections for blog posts, work case studies, a curated reading list, research notes, and experiments.",
+      "features": [
+        "Built with Eleventy (11ty) static site generator",
+        "Blog with posts on copywriting and brand strategy",
+        "Work section with client case study pages",
+        "Curated reading list with opinion-based sorting",
+        "Research and experiments sections",
+        "Nunjucks templating with custom filters",
+        "Zero JavaScript payload in the output"
+      ],
+      "order": 9
+    }
+  ]
 }
