@@ -45,6 +45,7 @@
         "Pure SwiftUI, no third-party dependencies",
         "Haptic feedback on successful save"
       ],
+      "screenshots": ["images/swish/screenshot.png"],
       "order": 3
     },
     {
@@ -60,6 +61,7 @@
         "Body composition trends (weight, hydration, respiration)",
         "macOS launchd integration for hands-free daily updates"
       ],
+      "screenshots": ["images/health-dash/screenshot.png"],
       "order": 4
     },
     {
@@ -75,6 +77,7 @@
         "Open Graph meta tags for social sharing",
         "Zero dependencies, instant load times"
       ],
+      "screenshots": ["images/copy-jamie/screenshot.png"],
       "order": 5
     },
     {
@@ -90,6 +93,7 @@
         "File-based data storage (no database required)",
         "Per-video and per-creator markdown summaries"
       ],
+      "screenshots": ["images/yt-transcripts/screenshot.png"],
       "order": 6
     },
     {
@@ -105,6 +109,7 @@
         "Pure HTML/CSS/JS with no build step",
         "Local storage persistence, no account required"
       ],
+      "screenshots": ["images/bookwise/screenshot.png"],
       "order": 7
     },
     {
@@ -120,6 +125,7 @@
         "Single-user security with Telegram user ID whitelisting",
         "Async Python with long-polling for responsive interaction"
       ],
+      "screenshots": ["images/fetch-media-via-telegram/screenshot.png"],
       "order": 8
     },
     {
@@ -135,6 +141,7 @@
         "Nunjucks templating with custom filters",
         "Zero JavaScript payload in the output"
       ],
+      "screenshots": ["images/brutalist-blog/screenshot.png"],
       "order": 9
     }
   ]
