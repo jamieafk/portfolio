@@ -373,6 +373,7 @@ main {
 .card:nth-child(8) { animation-delay: 0.56s; }
 .card:nth-child(9) { animation-delay: 0.64s; }
 .card:nth-child(10) { animation-delay: 0.72s; }
+.card:nth-child(11) { animation-delay: 0.8s; }
 
 /* ===== Body scroll lock ===== */
 body.overlay-open {

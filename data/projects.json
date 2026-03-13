@@ -1,6 +1,22 @@
 {
   "projects": [
     {
+      "slug": "ai-portfolio",
+      "title": "AI Portfolio",
+      "description": "This portfolio site is entirely built and maintained by AI through a custom Claude Code skill. I run a single slash command, and it generates the content, captures screenshots with Playwright (swapping in fake data for privacy-sensitive projects), previews locally, and publishes to GitHub Pages — all without me touching the code.",
+      "features": [
+        "End-to-end AI workflow via a custom Claude Code skill (/showcase)",
+        "Automated screenshot capture using Playwright MCP tools",
+        "Privacy-safe screenshots with fake data substitution for sensitive projects",
+        "Data-driven card grid powered by a single JSON file",
+        "Click-to-expand overlay with screenshot gallery and feature list",
+        "Dark aesthetic with film grain texture and staggered card animations",
+        "Zero dependencies — no framework, no build step, just HTML/CSS/JS"
+      ],
+      "screenshots": ["images/ai-portfolio/screenshot.png"],
+      "order": 1
+    },
+    {
       "slug": "asoona",
       "title": "Asoona",
       "description": "I built Asoona to coordinate my own projects — it's a self-hosted kanban app that tracks what I'm working on, where I left off, and what's blocking me. It doubles as the task management layer for my AI agent workflow, with a full REST API that Claude Code uses to stay in sync.",
@@ -14,7 +30,7 @@
         "Trash and restore for deleted tasks"
       ],
       "screenshots": ["images/asoona/screenshot.png"],
-      "order": 1
+      "order": 2
     },
     {
       "slug": "pfin",
@@ -30,7 +46,7 @@
         "Handles Wise, traditional banks, and credit card statements"
       ],
       "screenshots": ["images/pfin/screenshot.png"],
-      "order": 2
+      "order": 3
     },
     {
       "slug": "swish",
@@ -46,7 +62,7 @@
         "Haptic feedback on successful save"
       ],
       "screenshots": ["images/swish/screenshot.gif", "images/swish/screenshot.png"],
-      "order": 3
+      "order": 4
     },
     {
       "slug": "health-dash",
@@ -62,7 +78,7 @@
         "macOS launchd integration for hands-free daily updates"
       ],
       "screenshots": ["images/health-dash/screenshot.png"],
-      "order": 4
+      "order": 5
     },
     {
       "slug": "copy-jamie",
@@ -78,7 +94,7 @@
         "Zero dependencies, instant load times"
       ],
       "screenshots": ["images/copy-jamie/screenshot.png"],
-      "order": 5
+      "order": 6
     },
     {
       "slug": "yt-transcripts",
@@ -94,7 +110,7 @@
         "Per-video and per-creator markdown summaries"
       ],
       "screenshots": ["images/yt-transcripts/screenshot.png"],
-      "order": 6
+      "order": 7
     },
     {
       "slug": "bookwise",
@@ -110,7 +126,7 @@
         "Local storage persistence, no account required"
       ],
       "screenshots": ["images/bookwise/screenshot.png"],
-      "order": 7
+      "order": 8
     },
     {
       "slug": "fetch-media-via-telegram",
@@ -126,7 +142,7 @@
         "Async Python with long-polling for responsive interaction"
       ],
       "screenshots": ["images/fetch-media-via-telegram/screenshot.png"],
-      "order": 8
+      "order": 9
     },
     {
       "slug": "brutalist-blog",
@@ -142,7 +158,7 @@
         "Zero JavaScript payload in the output"
       ],
       "screenshots": ["images/brutalist-blog/screenshot.png"],
-      "order": 9
+      "order": 10
     }
   ]
 }
