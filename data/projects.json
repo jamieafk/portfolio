@@ -13,6 +13,7 @@
         "SQLite-backed with real-time optimistic updates via SWR",
         "Trash and restore for deleted tasks"
       ],
+      "screenshots": ["images/asoona/screenshot.png"],
       "order": 1
     },
     {
