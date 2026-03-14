@@ -20,7 +20,7 @@
       "slug": "asoona",
       "featured": true,
       "title": "Asoona",
-      "description": "I built Asoona to coordinate my own projects — it's a self-hosted kanban app that tracks what I'm working on, where I left off, and what's blocking me. It doubles as the task management layer for my AI agent workflow, with a full REST API that Claude Code uses to stay in sync.",
+      "description": "Asoona is a self-hosted, AI-first Asana replacement. Built with a REST API that Claude Code queries directly. Each project has a bottleneck indicator. External services can create tasks via inbound webhooks.",
       "features": [
         "Drag-and-drop kanban board with customizable columns",
         "Project status headers (objective, where I left off, bottleneck)",
