@@ -1,0 +1,21 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# Claude Code / Superpowers
+.claude/
+.superpowers/
+docs/superpowers/
+
+# Playwright
+.playwright-mcp/
+
+# Editor
+.vscode/
+.idea/
+
+# Temp screenshots
+screenshot-inbox/
+
+# Node (if ever added)
+node_modules/
