@@ -16,6 +16,22 @@
       const data = await res.json();
       const projects = data.projects.sort((a, b) => a.order - b.order);
 
+      // Move the first featured project to the front; mark others as non-featured
+      let foundFeatured = false;
+      for (let i = 0; i < projects.length; i++) {
+        if (projects[i].featured) {
+          if (!foundFeatured) {
+            foundFeatured = true;
+            if (i > 0) {
+              const [featured] = projects.splice(i, 1);
+              projects.unshift(featured);
+            }
+          } else {
+            projects[i].featured = false;
+          }
+        }
+      }
+
       if (projects.length === 0) {
         emptyState.hidden = false;
         return;
@@ -37,7 +53,18 @@
     card.setAttribute("tabindex", "0");
     card.setAttribute("aria-label", "View " + project.title);
 
+    if (project.featured) {
+      card.classList.add("card--featured");
+    }
+
     const hasImage = project.screenshots && project.screenshots.length > 0;
+
+    // Featured cards with images use side-by-side layout via .card-inner wrapper
+    const useInner = project.featured && hasImage;
+    const container = useInner ? document.createElement("div") : card;
+    if (useInner) {
+      container.className = "card-inner";
+    }
 
     if (hasImage) {
       const img = document.createElement("img");
@@ -45,12 +72,12 @@
       img.src = project.screenshots[0];
       img.alt = project.title + " screenshot";
       img.loading = "lazy";
-      card.appendChild(img);
+      container.appendChild(img);
     } else {
       const placeholder = document.createElement("div");
       placeholder.className = "card-image-placeholder";
       placeholder.textContent = "No preview";
-      card.appendChild(placeholder);
+      container.appendChild(placeholder);
     }
 
     const body = document.createElement("div");
@@ -66,7 +93,18 @@
     excerpt.textContent = project.description;
     body.appendChild(excerpt);
 
-    card.appendChild(body);
+    container.appendChild(body);
+
+    if (useInner) {
+      card.appendChild(container);
+    }
+
+    if (project.featured) {
+      const label = document.createElement("span");
+      label.className = "card--featured-label";
+      label.textContent = "Biggest Project";
+      card.appendChild(label);
+    }
 
     card.addEventListener("click", () => openDetail(project));
     card.addEventListener("keydown", (e) => {
