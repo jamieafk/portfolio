@@ -24,7 +24,7 @@ The JS uses this flag to apply different rendering. No other data changes.
 
 **Ordering**: The featured project is always rendered first in the grid, regardless of its `order` value. It spans the full width of the 2-column grid (using `grid-column: 1 / -1`). Internally it uses a horizontal side-by-side layout:
 
-- **Left**: Screenshot image (same 16:10 aspect ratio, `flex: 1.5`)
+- **Left**: Screenshot image (16:10 aspect ratio, `flex: 1`, `max-width: 55%`, `max-height: 280px`, `object-fit: cover`)
 - **Right**: Text content area — title, excerpt (no line clamp — show the full excerpt in the larger space) (`flex: 1`)
 
 The remaining projects render in the normal 2-column grid below, sorted by `order` as usual.

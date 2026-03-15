@@ -34,6 +34,20 @@
       "order": 2
     },
     {
+      "slug": "custom-superpowers",
+      "title": "Custom Superpowers",
+      "description": "I forked the superpowers plugin, built a simulated panel of Anthropic engineers including Claude Code's creator, and had them redesign the plugin to account for the newly released 1M context window.",
+      "features": [
+        "Simulated Anthropic advisory panel (Boris Cherny + 5 team members) guided the redesign",
+        "14 skills consolidated to 7 — merged redundant workflows, removed context-conservation overhead",
+        "Philosophy shift: use the context window fully, subagents only for true parallelism",
+        "Continuous verification after every step, not just at completion",
+        "Dual-layer communication — plain language for the user, technical details for the code"
+      ],
+      "screenshots": ["images/custom-superpowers/screenshot.png"],
+      "order": 3
+    },
+    {
       "slug": "pfin",
       "title": "PFIN",
       "description": "I built PFIN to make sense of my spending across multiple currencies and bank accounts. It processes bank statements from different sources, auto-categorizes transactions, and generates monthly summaries so I can see exactly where my money goes.",
@@ -47,7 +61,7 @@
         "Handles Wise, traditional banks, and credit card statements"
       ],
       "screenshots": ["images/pfin/screenshot.png"],
-      "order": 3
+      "order": 4
     },
     {
       "slug": "swish",
@@ -63,7 +77,7 @@
         "Haptic feedback on successful save"
       ],
       "screenshots": ["images/swish/screenshot.gif", "images/swish/screenshot.png"],
-      "order": 4
+      "order": 5
     },
     {
       "slug": "health-dash",
@@ -79,7 +93,7 @@
         "macOS launchd integration for hands-free daily updates"
       ],
       "screenshots": ["images/health-dash/screenshot.png"],
-      "order": 5
+      "order": 6
     },
     {
       "slug": "copy-jamie",
@@ -95,7 +109,7 @@
         "Zero dependencies, instant load times"
       ],
       "screenshots": ["images/copy-jamie/screenshot.png"],
-      "order": 6
+      "order": 7
     },
     {
       "slug": "yt-transcripts",
@@ -111,7 +125,7 @@
         "Per-video and per-creator markdown summaries"
       ],
       "screenshots": ["images/yt-transcripts/screenshot.png"],
-      "order": 7
+      "order": 8
     },
     {
       "slug": "bookwise",
@@ -127,7 +141,7 @@
         "Local storage persistence, no account required"
       ],
       "screenshots": ["images/bookwise/screenshot.png"],
-      "order": 8
+      "order": 9
     },
     {
       "slug": "fetch-media-via-telegram",
@@ -143,7 +157,7 @@
         "Async Python with long-polling for responsive interaction"
       ],
       "screenshots": ["images/fetch-media-via-telegram/screenshot.png"],
-      "order": 9
+      "order": 10
     },
     {
       "slug": "brutalist-blog",
@@ -159,7 +173,7 @@
         "Zero JavaScript payload in the output"
       ],
       "screenshots": ["images/brutalist-blog/screenshot.png"],
-      "order": 10
+      "order": 11
     }
   ]
 }
