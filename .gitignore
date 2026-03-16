@@ -6,6 +6,7 @@ Thumbs.db
 .claude/
 .superpowers/
 docs/superpowers/
+CLAUDE.md
 
 # Playwright
 .playwright-mcp/

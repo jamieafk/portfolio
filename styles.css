@@ -213,6 +213,49 @@ main {
   z-index: 1;
 }
 
+/* ===== WIP construction tape ===== */
+.card--wip {
+  position: relative;
+}
+
+.card--wip .card-image-placeholder {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #1a1800 0%, #2a2510 100%);
+  color: #6a6040;
+}
+
+.card--wip-sticker {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 2;
+  width: 150%;
+  transform: translate(-50%, -50%) rotate(-18deg);
+  background: repeating-linear-gradient(
+    -45deg,
+    #e8b62c,
+    #e8b62c 12px,
+    #1a1600 12px,
+    #1a1600 24px
+  );
+  color: #1a1600;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  text-align: center;
+  padding: 0.55rem 0;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
+  pointer-events: none;
+}
+
+.card--wip-sticker span {
+  background: #e8b62c;
+  padding: 0.15rem 1rem;
+}
+
 @media (max-width: 720px) {
   .card--featured {
     grid-column: auto;
@@ -449,6 +492,8 @@ main {
 .card:nth-child(9) { animation-delay: 0.64s; }
 .card:nth-child(10) { animation-delay: 0.72s; }
 .card:nth-child(11) { animation-delay: 0.8s; }
+.card:nth-child(12) { animation-delay: 0.88s; }
+.card:nth-child(13) { animation-delay: 0.96s; }
 
 /* ===== Body scroll lock ===== */
 body.overlay-open {

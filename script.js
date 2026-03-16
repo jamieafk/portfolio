@@ -57,6 +57,10 @@
       card.classList.add("card--featured");
     }
 
+    if (project.wip) {
+      card.classList.add("card--wip");
+    }
+
     const hasImage = project.screenshots && project.screenshots.length > 0;
 
     // Featured cards with images use side-by-side layout via .card-inner wrapper
@@ -104,6 +108,21 @@
       label.className = "card--featured-label";
       label.textContent = "Biggest Project";
       card.appendChild(label);
+    }
+
+    if (project.wip) {
+      const sticker = document.createElement("div");
+      sticker.className = "card--wip-sticker";
+      const text = document.createElement("span");
+      text.textContent = "Work in Progress";
+      sticker.appendChild(text);
+      // Insert into the image placeholder area
+      const placeholder = card.querySelector(".card-image-placeholder");
+      if (placeholder) {
+        placeholder.appendChild(sticker);
+      } else {
+        card.appendChild(sticker);
+      }
     }
 
     card.addEventListener("click", () => openDetail(project));

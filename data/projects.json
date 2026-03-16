@@ -17,6 +17,19 @@
       "order": 1
     },
     {
+      "slug": "project-invoice",
+      "title": "Project Invoice",
+      "wip": true,
+      "description": "The fastest way for freelancers to create invoices. Create a professional invoice in 30 seconds or less.",
+      "features": [
+        "Beautiful templates that make your invoices look like you hired a designer",
+        "Fill in the details, pick a style, download the PDF — done in under a minute",
+        "Accessible by AI agents"
+      ],
+      "screenshots": [],
+      "order": 2
+    },
+    {
       "slug": "asoona",
       "featured": true,
       "title": "Asoona",
@@ -31,7 +44,7 @@
         "Trash and restore for deleted tasks"
       ],
       "screenshots": ["images/asoona/screenshot.png"],
-      "order": 2
+      "order": 3
     },
     {
       "slug": "custom-superpowers",
@@ -45,7 +58,7 @@
         "Dual-layer communication — plain language for the user, technical details for the code"
       ],
       "screenshots": ["images/custom-superpowers/screenshot.png"],
-      "order": 3
+      "order": 4
     },
     {
       "slug": "pfin",
@@ -61,7 +74,7 @@
         "Handles Wise, traditional banks, and credit card statements"
       ],
       "screenshots": ["images/pfin/screenshot.png"],
-      "order": 4
+      "order": 5
     },
     {
       "slug": "swish",
@@ -77,7 +90,7 @@
         "Haptic feedback on successful save"
       ],
       "screenshots": ["images/swish/screenshot.gif", "images/swish/screenshot.png"],
-      "order": 5
+      "order": 6
     },
     {
       "slug": "health-dash",
@@ -93,7 +106,7 @@
         "macOS launchd integration for hands-free daily updates"
       ],
       "screenshots": ["images/health-dash/screenshot.png"],
-      "order": 6
+      "order": 7
     },
     {
       "slug": "copy-jamie",
@@ -109,7 +122,7 @@
         "Zero dependencies, instant load times"
       ],
       "screenshots": ["images/copy-jamie/screenshot.png"],
-      "order": 7
+      "order": 8
     },
     {
       "slug": "yt-transcripts",
@@ -125,7 +138,7 @@
         "Per-video and per-creator markdown summaries"
       ],
       "screenshots": ["images/yt-transcripts/screenshot.png"],
-      "order": 8
+      "order": 9
     },
     {
       "slug": "bookwise",
@@ -141,7 +154,7 @@
         "Local storage persistence, no account required"
       ],
       "screenshots": ["images/bookwise/screenshot.png"],
-      "order": 9
+      "order": 10
     },
     {
       "slug": "fetch-media-via-telegram",
@@ -157,7 +170,7 @@
         "Async Python with long-polling for responsive interaction"
       ],
       "screenshots": ["images/fetch-media-via-telegram/screenshot.png"],
-      "order": 10
+      "order": 11
     },
     {
       "slug": "brutalist-blog",
@@ -173,7 +186,7 @@
         "Zero JavaScript payload in the output"
       ],
       "screenshots": ["images/brutalist-blog/screenshot.png"],
-      "order": 11
+      "order": 12
     }
   ]
 }
