@@ -106,7 +106,7 @@
     if (project.featured) {
       const label = document.createElement("span");
       label.className = "card--featured-label";
-      label.textContent = "Biggest Project";
+      label.textContent = "Featured Product";
       card.appendChild(label);
     }
 

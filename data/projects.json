@@ -18,20 +18,22 @@
     },
     {
       "slug": "project-invoice",
-      "title": "Project Invoice",
-      "wip": true,
-      "description": "The fastest way for freelancers to create invoices. Create a professional invoice in 30 seconds or less.",
+      "title": "Beautiful Invoices",
+      "featured": true,
+      "description": "Most invoicing tools are bloated with features freelancers don't need. Beautiful Invoices strips it down to the essentials — fill in the details, pick a template, and download a stunning PDF. Your first invoice takes 30 seconds.",
       "features": [
-        "Beautiful templates that make your invoices look like you hired a designer",
-        "Fill in the details, pick a style, download the PDF — done in under a minute",
-        "Accessible by AI agents"
+        "6 designer templates — Studio, Mono, Craft, Noir, Ledger, Bold",
+        "4-step wizard: line items, your details, client, preview and download",
+        "Accent color picker to match your brand",
+        "PDF generation with pixel-perfect fidelity",
+        "Save your business details and client list for repeat invoices",
+        "Invoice history with re-download and duplicate"
       ],
-      "screenshots": [],
+      "screenshots": ["images/project-invoice/screenshot.png"],
       "order": 2
     },
     {
       "slug": "asoona",
-      "featured": true,
       "title": "Asoona",
       "description": "Asoona is a self-hosted, AI-first Asana replacement. Built with a REST API that Claude Code queries directly. Each project has a bottleneck indicator. External services can create tasks via inbound webhooks.",
       "features": [
