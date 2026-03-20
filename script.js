@@ -16,21 +16,11 @@
       const data = await res.json();
       const projects = data.projects.sort((a, b) => a.order - b.order);
 
-      // Move the first featured project to the front; mark others as non-featured
-      let foundFeatured = false;
-      for (let i = 0; i < projects.length; i++) {
-        if (projects[i].featured) {
-          if (!foundFeatured) {
-            foundFeatured = true;
-            if (i > 0) {
-              const [featured] = projects.splice(i, 1);
-              projects.unshift(featured);
-            }
-          } else {
-            projects[i].featured = false;
-          }
-        }
-      }
+      // Move all featured projects to the front, preserving their relative order
+      const featured = projects.filter((p) => p.featured);
+      const rest = projects.filter((p) => !p.featured);
+      projects.length = 0;
+      projects.push(...featured, ...rest);
 
       if (projects.length === 0) {
         emptyState.hidden = false;

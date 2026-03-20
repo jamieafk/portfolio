@@ -34,6 +34,7 @@
     },
     {
       "slug": "asoona",
+      "featured": true,
       "title": "Asoona",
       "description": "Asoona is a self-hosted, AI-first Asana replacement. Built with a REST API that Claude Code queries directly. Each project has a bottleneck indicator. External services can create tasks via inbound webhooks.",
       "features": [
