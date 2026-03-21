@@ -176,22 +176,6 @@
       "order": 11
     },
     {
-      "slug": "brutalist-blog",
-      "title": "Brutalist Blog",
-      "description": "A personal blog and copywriting portfolio built with Eleventy. It has a deliberately raw, brutalist design aesthetic — no frills, no filler. Sections for blog posts, work case studies, a curated reading list, research notes, and experiments.",
-      "features": [
-        "Built with Eleventy (11ty) static site generator",
-        "Blog with posts on copywriting and brand strategy",
-        "Work section with client case study pages",
-        "Curated reading list with opinion-based sorting",
-        "Research and experiments sections",
-        "Nunjucks templating with custom filters",
-        "Zero JavaScript payload in the output"
-      ],
-      "screenshots": ["images/brutalist-blog/screenshot.png"],
-      "order": 12
-    },
-    {
       "slug": "ai-hair-stylist",
       "title": "AI Hair Stylist",
       "description": "I needed a haircut.",
@@ -204,7 +188,7 @@
         "Built with Next.js and the Fal.ai API"
       ],
       "screenshots": ["images/ai-hair-stylist/screenshot.png"],
-      "order": 13
+      "order": 12
     }
   ]
 }
