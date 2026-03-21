@@ -27,8 +27,8 @@
         return;
       }
 
-      projects.forEach((project) => {
-        grid.appendChild(createCard(project));
+      projects.forEach((project, i) => {
+        grid.appendChild(createCard(project, i + 1));
       });
     } catch (err) {
       console.error("Failed to load projects:", err);
@@ -36,7 +36,7 @@
     }
   }
 
-  function createCard(project) {
+  function createCard(project, index) {
     const card = document.createElement("article");
     card.className = "card";
     card.setAttribute("role", "button");
@@ -76,6 +76,11 @@
 
     const body = document.createElement("div");
     body.className = "card-body";
+
+    const number = document.createElement("span");
+    number.className = "card-number";
+    number.textContent = String(index).padStart(2, "0");
+    body.appendChild(number);
 
     const title = document.createElement("h2");
     title.className = "card-title";
