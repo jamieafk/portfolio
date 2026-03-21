@@ -190,6 +190,21 @@
       ],
       "screenshots": ["images/brutalist-blog/screenshot.png"],
       "order": 12
+    },
+    {
+      "slug": "ai-hair-stylist",
+      "title": "AI Hair Stylist",
+      "description": "I needed a haircut.",
+      "features": [
+        "Asked Claude for the top 50 hairstyles for my face shape",
+        "Trains a personal AI model on your selfies via Fal.ai (~$6/model)",
+        "Generates photos of you in each hairstyle (~$0.03/image)",
+        "Three-step flow: upload photos, pick styles, generate",
+        "Live training progress streamed from Fal.ai to the browser",
+        "Built with Next.js and the Fal.ai API"
+      ],
+      "screenshots": ["images/ai-hair-stylist/screenshot.png"],
+      "order": 13
     }
   ]
 }
