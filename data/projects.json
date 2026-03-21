@@ -50,6 +50,23 @@
       "order": 3
     },
     {
+      "slug": "dev-proxy",
+      "title": "Dev Proxy",
+      "description": "I got tired of remembering which localhost port belongs to which project. Dev Proxy is a local reverse proxy I built from scratch — it routes .test domains to my dev servers so I can just type asoona.test or beautiful-invoices.test instead of localhost:3741. A dashboard at dev.test shows what's running and lets me start or stop servers with a toggle.",
+      "features": [
+        "Custom reverse proxy with dnsmasq for automatic .test domain resolution",
+        "Dashboard at dev.test showing all projects with live status indicators",
+        "Toggle switches to start and stop dev servers from the browser",
+        "Auto-restart for crashed dev servers with configurable retry limits",
+        "Registry-based port management — no more port conflicts",
+        "Auto-detects archived projects and hides them from the dashboard",
+        "Starts on boot via macOS launchd — zero maintenance",
+        "Self-restarts when source code changes, no manual deploys"
+      ],
+      "screenshots": ["images/dev-proxy/screenshot.png"],
+      "order": 4
+    },
+    {
       "slug": "custom-superpowers",
       "title": "Custom Superpowers",
       "description": "I forked the superpowers plugin, built a simulated panel of Anthropic engineers including Claude Code's creator, and had them redesign the plugin to account for the newly released 1M context window.",
@@ -61,7 +78,7 @@
         "Dual-layer communication — plain language for the user, technical details for the code"
       ],
       "screenshots": ["images/custom-superpowers/screenshot.png"],
-      "order": 4
+      "order": 5
     },
     {
       "slug": "pfin",
@@ -77,7 +94,7 @@
         "Handles Wise, traditional banks, and credit card statements"
       ],
       "screenshots": ["images/pfin/screenshot.png"],
-      "order": 5
+      "order": 6
     },
     {
       "slug": "swish",
@@ -93,7 +110,7 @@
         "Haptic feedback on successful save"
       ],
       "screenshots": ["images/swish/screenshot.gif", "images/swish/screenshot.png"],
-      "order": 6
+      "order": 7
     },
     {
       "slug": "health-dash",
@@ -109,7 +126,7 @@
         "macOS launchd integration for hands-free daily updates"
       ],
       "screenshots": ["images/health-dash/screenshot.png"],
-      "order": 7
+      "order": 8
     },
     {
       "slug": "copy-jamie",
@@ -125,7 +142,7 @@
         "Zero dependencies, instant load times"
       ],
       "screenshots": ["images/copy-jamie/screenshot.png"],
-      "order": 8
+      "order": 9
     },
     {
       "slug": "yt-transcripts",
@@ -141,7 +158,7 @@
         "Per-video and per-creator markdown summaries"
       ],
       "screenshots": ["images/yt-transcripts/screenshot.png"],
-      "order": 9
+      "order": 10
     },
     {
       "slug": "bookwise",
@@ -157,7 +174,7 @@
         "Local storage persistence, no account required"
       ],
       "screenshots": ["images/bookwise/screenshot.png"],
-      "order": 10
+      "order": 11
     },
     {
       "slug": "fetch-media-via-telegram",
@@ -173,7 +190,7 @@
         "Async Python with long-polling for responsive interaction"
       ],
       "screenshots": ["images/fetch-media-via-telegram/screenshot.png"],
-      "order": 11
+      "order": 12
     },
     {
       "slug": "ai-hair-stylist",
@@ -188,7 +205,7 @@
         "Built with Next.js and the Fal.ai API"
       ],
       "screenshots": ["images/ai-hair-stylist/screenshot.png"],
-      "order": 12
+      "order": 13
     }
   ]
 }
