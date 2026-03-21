@@ -163,15 +163,15 @@
     {
       "slug": "bookwise",
       "title": "Bookwise",
-      "description": "I wanted a lightweight way to track my reading without a heavyweight app. Bookwise is a browser-based book collection tracker that imports data from my Kindle, lets me manage my library, and keeps a wishlist — all in a single HTML file with local storage.",
+      "description": "I built Bookwise because I wanted my Kindle highlights to feel alive, not buried in a file I never open. It imports my highlights and surfaces them in daily review sessions with spaced repetition — 7 highlights per session, weighted toward what I haven't seen in a while. I can star what resonates and add notes during review.",
       "features": [
-        "Kindle data import for bulk library setup",
-        "Book collection management with search and filtering",
-        "Reading wishlist tracking",
-        "Review and rating system for finished books",
-        "JSON backup and restore for portability",
-        "Pure HTML/CSS/JS with no build step",
-        "Local storage persistence, no account required"
+        "Daily review sessions with spaced repetition across 11,000+ highlights",
+        "Immersive full-screen review UI with warm serif typography and crossfade transitions",
+        "Star and annotate highlights during review — annotations persist in book detail view",
+        "Book covers auto-fetched from Open Library API",
+        "Want to Read list with Amazon links and recommendation notes",
+        "Import from Kindle clippings and Readwise CSV exports",
+        "SQLite-backed durable storage with IndexedDB as fast local cache"
       ],
       "screenshots": ["images/bookwise/screenshot.png"],
       "order": 11
