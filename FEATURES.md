@@ -14,3 +14,8 @@
   - Golden-tinted placeholder instead of standard "No preview" treatment
   - Intended for projects not yet ready for a full showcase
   - Why: tease upcoming projects without needing screenshots or polished copy
+
+- **Numbered card labels** (2026-03-21) — Each project card displays a zero-padded number (01, 02, ...) above the title
+  - Accent-colored, display font, editorial style
+  - Numbers reflect display order (featured projects first, then by sort order)
+  - Why: adds visual hierarchy and a sense of curated collection
