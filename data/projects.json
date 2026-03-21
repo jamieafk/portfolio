@@ -206,6 +206,22 @@
       ],
       "screenshots": ["images/ai-hair-stylist/screenshot.png"],
       "order": 13
+    },
+    {
+      "slug": "personal-dictation",
+      "title": "Personal Dictation",
+      "description": "I was paying for WisprFlow just to dictate text. Personal Dictation is a local-only macOS replacement — hold Right Option, speak, release, and the text appears wherever your cursor is. Everything runs on-device with mlx-whisper, so nothing leaves my machine.",
+      "features": [
+        "Hold-to-talk — hold Right Option, speak, release",
+        "Local-only transcription via mlx-whisper (~190ms)",
+        "Text appears in any focused app automatically",
+        "Animated neon purple waveform during recording",
+        "Transcription history with search and copy",
+        "Auto-launches on login, restarts if it crashes",
+        "Sound feedback confirms press and release"
+      ],
+      "screenshots": ["images/personal-dictation/screenshot.gif"],
+      "order": 14
     }
   ]
 }
