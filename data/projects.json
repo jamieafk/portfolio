@@ -14,7 +14,7 @@
         "Zero dependencies — no framework, no build step, just HTML/CSS/JS"
       ],
       "screenshots": ["images/ai-portfolio/screenshot.png"],
-      "order": 1
+      "order": 14
     },
     {
       "slug": "project-invoice",
@@ -221,7 +221,7 @@
         "Sound feedback confirms press and release"
       ],
       "screenshots": ["images/personal-dictation/screenshot.gif"],
-      "order": 14
+      "order": 1
     }
   ]
 }
