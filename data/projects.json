@@ -1,6 +1,14 @@
 {
   "projects": [
     {
+      "slug": "myrtle",
+      "title": "Myrtle",
+      "description": "A private pipeline for capturing how someone writes and extending it.",
+      "features": [],
+      "screenshots": ["images/myrtle/screenshot.png"],
+      "order": 3
+    },
+    {
       "slug": "scribbles",
       "title": "Scribbles",
       "description": "More and more, documents get reviewed by people and AI assistants at the same time — and that gets messy fast. Scribbles keeps it all in one place: comments, suggested edits, replies, and version history that never get lost when you refresh. It's built so an AI assistant can read and comment on a document directly, instead of me copy-pasting back and forth.",
@@ -15,7 +23,7 @@
         "Runs entirely on your own machine"
       ],
       "screenshots": ["images/scribbles/screenshot.png"],
-      "order": 1
+      "order": 4
     },
     {
       "slug": "nhl-watcher",
@@ -31,7 +39,7 @@
         "FastAPI backend and Next.js UI, deployed on Railway with cron polling"
       ],
       "screenshots": ["images/nhl-watcher/screenshot.png"],
-      "order": 2
+      "order": 5
     },
     {
       "slug": "cc-demos",
@@ -47,7 +55,7 @@
         "Triggered by a /cc-demos slash command or a single npm script"
       ],
       "screenshots": ["images/cc-demos/screenshot.gif"],
-      "order": 3
+      "order": 6
     },
     {
       "slug": "project-invoice",
@@ -63,7 +71,7 @@
         "Invoice history with re-download and duplicate"
       ],
       "screenshots": ["images/project-invoice/screenshot.png"],
-      "order": 5
+      "order": 1
     },
     {
       "slug": "asoona",
@@ -80,7 +88,7 @@
         "Trash and restore for deleted tasks"
       ],
       "screenshots": ["images/asoona/screenshot.png"],
-      "order": 6
+      "order": 2
     },
     {
       "slug": "dev-proxy",
@@ -97,7 +105,7 @@
         "Self-restarts when source code changes, no manual deploys"
       ],
       "screenshots": ["images/dev-proxy/screenshot.png"],
-      "order": 7
+      "order": 8
     },
     {
       "slug": "custom-superpowers",
@@ -111,7 +119,7 @@
         "Dual-layer communication — plain language for the user, technical details for the code"
       ],
       "screenshots": ["images/custom-superpowers/screenshot.png"],
-      "order": 8
+      "order": 9
     },
     {
       "slug": "pfin",
@@ -127,7 +135,7 @@
         "Handles Wise, traditional banks, and credit card statements"
       ],
       "screenshots": ["images/pfin/screenshot.png"],
-      "order": 9
+      "order": 10
     },
     {
       "slug": "sling",
@@ -143,7 +151,7 @@
         "Pure SwiftUI, no third-party dependencies"
       ],
       "screenshots": ["images/swish/screenshot.gif", "images/swish/screenshot.png"],
-      "order": 10
+      "order": 11
     },
     {
       "slug": "health-dash",
@@ -159,7 +167,7 @@
         "macOS launchd integration for hands-free daily updates"
       ],
       "screenshots": ["images/health-dash/screenshot.png"],
-      "order": 11
+      "order": 12
     },
     {
       "slug": "copy-jamie",
@@ -175,7 +183,7 @@
         "Zero dependencies, instant load times"
       ],
       "screenshots": ["images/copy-jamie/screenshot.png"],
-      "order": 12
+      "order": 13
     },
     {
       "slug": "bookwise",
@@ -191,7 +199,7 @@
         "SQLite-backed durable storage with IndexedDB as fast local cache"
       ],
       "screenshots": ["images/bookwise/screenshot.png"],
-      "order": 13
+      "order": 14
     },
     {
       "slug": "personal-dictation",
@@ -207,7 +215,7 @@
         "Sound feedback confirms press and release"
       ],
       "screenshots": ["images/personal-dictation/screenshot.gif"],
-      "order": 4
+      "order": 7
     }
   ]
 }
