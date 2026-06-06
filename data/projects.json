@@ -50,22 +50,6 @@
       "order": 3
     },
     {
-      "slug": "ai-portfolio",
-      "title": "AI Portfolio",
-      "description": "This portfolio site is entirely built and maintained by AI through a custom Claude Code skill. I run a single slash command, and it generates the content, captures screenshots with Playwright (swapping in fake data for privacy-sensitive projects), previews locally, and publishes to GitHub Pages — all without me touching the code.",
-      "features": [
-        "End-to-end AI workflow via a custom Claude Code skill (/showcase)",
-        "Automated screenshot capture using Playwright MCP tools",
-        "Privacy-safe screenshots with fake data substitution for sensitive projects",
-        "Data-driven card grid powered by a single JSON file",
-        "Click-to-expand overlay with screenshot gallery and feature list",
-        "Dark aesthetic with film grain texture and staggered card animations",
-        "Zero dependencies — no framework, no build step, just HTML/CSS/JS"
-      ],
-      "screenshots": ["images/ai-portfolio/screenshot.png"],
-      "order": 17
-    },
-    {
       "slug": "project-invoice",
       "title": "Sally Sold",
       "featured": true,
@@ -194,22 +178,6 @@
       "order": 12
     },
     {
-      "slug": "yt-transcripts",
-      "title": "YT Transcripts",
-      "description": "I built this to save time on long YouTube videos. It pulls transcripts from any YouTube video or channel, summarizes them with Claude, and can synthesize a creator's full body of work into a single overview. The Streamlit UI makes it easy to register channels and browse summaries.",
-      "features": [
-        "Pull transcripts from any YouTube video automatically",
-        "AI-powered summarization using Claude",
-        "Cross-video synthesis across a creator's entire catalogue",
-        "Channel and playlist registration for batch processing",
-        "Streamlit web UI for browsing and managing summaries",
-        "File-based data storage (no database required)",
-        "Per-video and per-creator markdown summaries"
-      ],
-      "screenshots": ["images/yt-transcripts/screenshot.png"],
-      "order": 13
-    },
-    {
       "slug": "bookwise",
       "title": "Bookwise",
       "description": "I built Bookwise because I wanted my Kindle highlights to feel alive, not buried in a file I never open. It imports my highlights and surfaces them in daily review sessions with spaced repetition — 7 highlights per session, weighted toward what I haven't seen in a while. I can star what resonates and add notes during review.",
@@ -223,38 +191,7 @@
         "SQLite-backed durable storage with IndexedDB as fast local cache"
       ],
       "screenshots": ["images/bookwise/screenshot.png"],
-      "order": 14
-    },
-    {
-      "slug": "fetch-media-via-telegram",
-      "title": "Media Fetch Bot",
-      "description": "I built this Telegram bot to streamline how I discover and organize movies and TV shows. I send it an IMDB or TVDB link — or just a title — and it looks up the media, shows me the details, and adds it to my watchlist. All from a Telegram chat.",
-      "features": [
-        "IMDB and TVDB link parsing for instant media lookup",
-        "Plain text title search for movies and TV shows",
-        "Inline confirmation with poster and details before adding",
-        "Personal watchlist management via chat interface",
-        "Runs as a background service via macOS launchd",
-        "Single-user security with Telegram user ID whitelisting",
-        "Async Python with long-polling for responsive interaction"
-      ],
-      "screenshots": ["images/fetch-media-via-telegram/screenshot.png"],
-      "order": 15
-    },
-    {
-      "slug": "ai-hair-stylist",
-      "title": "AI Hair Stylist",
-      "description": "I needed a haircut.",
-      "features": [
-        "Asked Claude for the top 50 hairstyles for my face shape",
-        "Trains a personal AI model on your selfies via Fal.ai (~$6/model)",
-        "Generates photos of you in each hairstyle (~$0.03/image)",
-        "Three-step flow: upload photos, pick styles, generate",
-        "Live training progress streamed from Fal.ai to the browser",
-        "Built with Next.js and the Fal.ai API"
-      ],
-      "screenshots": ["images/ai-hair-stylist/screenshot.png"],
-      "order": 16
+      "order": 13
     },
     {
       "slug": "personal-dictation",
