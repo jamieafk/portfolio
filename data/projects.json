@@ -1,6 +1,55 @@
 {
   "projects": [
     {
+      "slug": "scribbles",
+      "title": "Scribbles",
+      "description": "More and more, documents get reviewed by people and AI assistants at the same time — and that gets messy fast. Scribbles keeps it all in one place: comments, suggested edits, replies, and version history that never get lost when you refresh. It's built so an AI assistant can read and comment on a document directly, instead of me copy-pasting back and forth.",
+      "features": [
+        "Inline comments and suggested edits that stay pinned to the right spot",
+        "Accept or reject each suggestion with one click",
+        "Replies, resolve and reopen, filters, and a minimap for long documents",
+        "Full version history with one-click restore",
+        "Autosaves as you type, with draft recovery if something goes wrong",
+        "Built for AI assistants to review documents directly — no browser needed",
+        "Export and share documents as portable files",
+        "Runs entirely on your own machine"
+      ],
+      "screenshots": ["images/scribbles/screenshot.png"],
+      "order": 1
+    },
+    {
+      "slug": "nhl-watcher",
+      "title": "NHL Watcher",
+      "description": "I'm a Leafs fan who can't keep up with every NHL podcast, so I built NHL Watcher to do it for me. It monitors notable hockey podcasts and shows, transcribes them, detects Leafs-related topics, and clusters the coverage into a ranked topic board — so I can see what everyone's talking about, with short quotes, timestamps, and links back to the original episode.",
+      "features": [
+        "Monitors NHL podcasts, YouTube shows, and radio reposts automatically",
+        "Transcribes full episodes and detects Leafs-related topics",
+        "Clusters coverage into ranked topic threads across sources",
+        "Ranks topics by source diversity, mention count, discussion time, and recency",
+        "Short quotes with speaker attribution, sentiment, and timestamps",
+        "Public, no-login topic board; full transcripts stay private",
+        "FastAPI backend and Next.js UI, deployed on Railway with cron polling"
+      ],
+      "screenshots": ["images/nhl-watcher/screenshot.png"],
+      "order": 2
+    },
+    {
+      "slug": "cc-demos",
+      "title": "CC Demos",
+      "description": "Claude ships new features constantly, but most land as a changelog line nobody pictures themselves using. CC Demos is an automated pipeline that turns each new Claude Code feature into a polished ~20-second vertical video — AI-narrated, with a BEFORE/NOW story and three concrete use cases. One feature description goes in, a finished, shareable demo comes out.",
+      "features": [
+        "One feature in → one finished demo video out, fully hands-off",
+        "BEFORE/NOW story structure rendered programmatically with Remotion",
+        "AI-narrated voiceover via ElevenLabs text-to-speech",
+        "Three named, concrete use cases per feature — no generic filler",
+        "Vertical 9:16 format for X, YouTube Shorts, and Reels",
+        "Combine step joins feature videos into one reel without re-rendering",
+        "Triggered by a /cc-demos slash command or a single npm script"
+      ],
+      "screenshots": ["images/cc-demos/screenshot.gif"],
+      "order": 3
+    },
+    {
       "slug": "ai-portfolio",
       "title": "AI Portfolio",
       "description": "This portfolio site is entirely built and maintained by AI through a custom Claude Code skill. I run a single slash command, and it generates the content, captures screenshots with Playwright (swapping in fake data for privacy-sensitive projects), previews locally, and publishes to GitHub Pages — all without me touching the code.",
@@ -14,7 +63,7 @@
         "Zero dependencies — no framework, no build step, just HTML/CSS/JS"
       ],
       "screenshots": ["images/ai-portfolio/screenshot.png"],
-      "order": 14
+      "order": 17
     },
     {
       "slug": "project-invoice",
@@ -30,7 +79,7 @@
         "Invoice history with re-download and duplicate"
       ],
       "screenshots": ["images/project-invoice/screenshot.png"],
-      "order": 2
+      "order": 5
     },
     {
       "slug": "asoona",
@@ -47,7 +96,7 @@
         "Trash and restore for deleted tasks"
       ],
       "screenshots": ["images/asoona/screenshot.png"],
-      "order": 3
+      "order": 6
     },
     {
       "slug": "dev-proxy",
@@ -64,7 +113,7 @@
         "Self-restarts when source code changes, no manual deploys"
       ],
       "screenshots": ["images/dev-proxy/screenshot.png"],
-      "order": 4
+      "order": 7
     },
     {
       "slug": "custom-superpowers",
@@ -78,7 +127,7 @@
         "Dual-layer communication — plain language for the user, technical details for the code"
       ],
       "screenshots": ["images/custom-superpowers/screenshot.png"],
-      "order": 5
+      "order": 8
     },
     {
       "slug": "pfin",
@@ -94,7 +143,7 @@
         "Handles Wise, traditional banks, and credit card statements"
       ],
       "screenshots": ["images/pfin/screenshot.png"],
-      "order": 6
+      "order": 9
     },
     {
       "slug": "sling",
@@ -110,7 +159,7 @@
         "Pure SwiftUI, no third-party dependencies"
       ],
       "screenshots": ["images/swish/screenshot.gif", "images/swish/screenshot.png"],
-      "order": 7
+      "order": 10
     },
     {
       "slug": "health-dash",
@@ -126,7 +175,7 @@
         "macOS launchd integration for hands-free daily updates"
       ],
       "screenshots": ["images/health-dash/screenshot.png"],
-      "order": 8
+      "order": 11
     },
     {
       "slug": "copy-jamie",
@@ -142,7 +191,7 @@
         "Zero dependencies, instant load times"
       ],
       "screenshots": ["images/copy-jamie/screenshot.png"],
-      "order": 9
+      "order": 12
     },
     {
       "slug": "yt-transcripts",
@@ -158,7 +207,7 @@
         "Per-video and per-creator markdown summaries"
       ],
       "screenshots": ["images/yt-transcripts/screenshot.png"],
-      "order": 10
+      "order": 13
     },
     {
       "slug": "bookwise",
@@ -174,7 +223,7 @@
         "SQLite-backed durable storage with IndexedDB as fast local cache"
       ],
       "screenshots": ["images/bookwise/screenshot.png"],
-      "order": 11
+      "order": 14
     },
     {
       "slug": "fetch-media-via-telegram",
@@ -190,7 +239,7 @@
         "Async Python with long-polling for responsive interaction"
       ],
       "screenshots": ["images/fetch-media-via-telegram/screenshot.png"],
-      "order": 12
+      "order": 15
     },
     {
       "slug": "ai-hair-stylist",
@@ -205,7 +254,7 @@
         "Built with Next.js and the Fal.ai API"
       ],
       "screenshots": ["images/ai-hair-stylist/screenshot.png"],
-      "order": 13
+      "order": 16
     },
     {
       "slug": "personal-dictation",
@@ -221,7 +270,7 @@
         "Sound feedback confirms press and release"
       ],
       "screenshots": ["images/personal-dictation/screenshot.gif"],
-      "order": 1
+      "order": 4
     }
   ]
 }
