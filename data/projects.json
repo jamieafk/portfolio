@@ -138,9 +138,9 @@
       "order": 10
     },
     {
-      "slug": "sling",
-      "title": "Sling",
-      "description": "Sling is a single-purpose iOS app for getting thoughts out of your head as fast as possible. You open it, type or dictate, swipe up, and the note saves as a Markdown file to iCloud Drive, a Files folder, or an automation webhook.",
+      "slug": "fling",
+      "title": "Fling",
+      "description": "Fling is a single-purpose iOS app for getting thoughts out of your head as fast as possible. You open it, type or dictate, swipe up, and the note saves as a Markdown file to iCloud Drive, a Files folder, or an automation webhook.",
       "features": [
         "Swipe-up gesture to instantly save notes as Markdown files",
         "iCloud Drive default destination with local fallback",
@@ -150,7 +150,7 @@
         "Security-scoped bookmarks for persistent folder access",
         "Pure SwiftUI, no third-party dependencies"
       ],
-      "screenshots": ["images/swish/screenshot.gif", "images/swish/screenshot.png"],
+      "screenshots": ["images/fling/screenshot.gif", "images/fling/screenshot.png"],
       "order": 11
     },
     {

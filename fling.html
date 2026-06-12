@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fling - 1 Swipe Quick Capture Notes</title>
+  <meta name="description" content="Fling is a quick-capture iPhone app for saving notes as plain Markdown files with one swipe.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Crimson+Pro:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #101010;
+      --panel: #181816;
+      --panel-2: #20201d;
+      --border: #2a2825;
+      --text: #e8e4de;
+      --muted: #9a9386;
+      --accent: #c4784a;
+      --accent-soft: rgba(196, 120, 74, 0.14);
+      --font-display: "Bricolage Grotesque", sans-serif;
+      --font-body: "Crimson Pro", Georgia, serif;
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: 18px;
+      line-height: 1.6;
+    }
+
+    a { color: inherit; }
+
+    .grain {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.035;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      background-size: 200px 200px;
+    }
+
+    .shell {
+      width: min(1080px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      padding: 28px 0;
+      font-family: var(--font-display);
+      color: var(--muted);
+    }
+
+    .brand {
+      color: var(--text);
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+
+    nav {
+      display: flex;
+      gap: 18px;
+      font-size: 14px;
+    }
+
+    nav a {
+      color: var(--muted);
+      text-decoration: none;
+    }
+
+    nav a:hover { color: var(--text); }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 0.95fr) minmax(300px, 1.05fr);
+      gap: 44px;
+      align-items: center;
+      min-height: min(760px, calc(100vh - 86px));
+      padding: 36px 0 58px;
+    }
+
+    .eyebrow {
+      color: var(--accent);
+      font-family: var(--font-display);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      margin: 0 0 14px;
+    }
+
+    h1 {
+      font-family: var(--font-display);
+      font-size: clamp(56px, 10vw, 118px);
+      line-height: 0.92;
+      letter-spacing: 0;
+      margin: 0;
+    }
+
+    .dek {
+      max-width: 520px;
+      margin: 24px 0 0;
+      color: var(--muted);
+      font-size: clamp(22px, 3vw, 30px);
+      line-height: 1.25;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 30px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 0 18px;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+      color: var(--text);
+      font-family: var(--font-display);
+      font-size: 14px;
+      font-weight: 700;
+      text-decoration: none;
+      background: var(--panel);
+    }
+
+    .button.primary {
+      border-color: transparent;
+      background: var(--accent);
+      color: #140d08;
+    }
+
+    .hero-media {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+      background: var(--panel);
+      box-shadow: 0 22px 70px rgba(0, 0, 0, 0.34);
+    }
+
+    .hero-media img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      object-fit: cover;
+    }
+
+    .facts {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      border: 1px solid var(--border);
+      background: var(--border);
+      margin-bottom: 58px;
+    }
+
+    .fact {
+      background: var(--panel);
+      padding: 20px;
+    }
+
+    .fact b {
+      display: block;
+      font-family: var(--font-display);
+      font-size: 14px;
+      margin-bottom: 6px;
+    }
+
+    .fact span {
+      display: block;
+      color: var(--muted);
+      font-size: 16px;
+    }
+
+    section {
+      border-top: 1px solid var(--border);
+      padding: 48px 0;
+    }
+
+    h2 {
+      font-family: var(--font-display);
+      font-size: clamp(30px, 5vw, 54px);
+      line-height: 1;
+      margin: 0 0 18px;
+      letter-spacing: 0;
+    }
+
+    .section-grid {
+      display: grid;
+      grid-template-columns: 0.75fr 1.25fr;
+      gap: 42px;
+    }
+
+    .copy p,
+    .copy li {
+      color: var(--muted);
+    }
+
+    .copy p {
+      margin: 0 0 16px;
+    }
+
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    li {
+      position: relative;
+      padding-left: 22px;
+      margin-bottom: 10px;
+    }
+
+    li::before {
+      content: "-";
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+    }
+
+    .support-card {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 24px;
+    }
+
+    .support-card a {
+      color: var(--text);
+      text-decoration-color: var(--accent);
+      text-underline-offset: 4px;
+    }
+
+    footer {
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+      padding: 26px 0 40px;
+      font-family: var(--font-display);
+      font-size: 13px;
+    }
+
+    @media (max-width: 820px) {
+      .hero,
+      .section-grid,
+      .facts {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        min-height: auto;
+        padding-top: 16px;
+      }
+
+      header {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="grain" aria-hidden="true"></div>
+
+  <header class="shell">
+    <div class="brand">47 Summers</div>
+    <nav aria-label="Fling page navigation">
+      <a href="#features">Features</a>
+      <a href="#support">Support</a>
+      <a href="#privacy">Privacy</a>
+      <a href="index.html">Portfolio</a>
+    </nav>
+  </header>
+
+  <main class="shell">
+    <section class="hero" aria-labelledby="title">
+      <div>
+        <p class="eyebrow">1 Swipe Quick Capture Notes</p>
+        <h1 id="title">Fling</h1>
+        <p class="dek">A tiny iPhone app for catching a thought, swiping up, and saving it as a plain Markdown note.</p>
+        <div class="actions">
+          <a class="button primary" href="#support">Get Support</a>
+          <a class="button" href="#privacy">Privacy Policy</a>
+        </div>
+      </div>
+
+      <figure class="hero-media">
+        <img src="images/fling/screenshot.gif" alt="Fling app swipe-to-save preview">
+      </figure>
+    </section>
+
+    <div class="facts" aria-label="Fling highlights">
+      <div class="fact">
+        <b>Default Save</b>
+        <span>iCloud Drive</span>
+      </div>
+      <div class="fact">
+        <b>File Type</b>
+        <span>Markdown</span>
+      </div>
+      <div class="fact">
+        <b>Input</b>
+        <span>Typing or voice</span>
+      </div>
+      <div class="fact">
+        <b>Advanced</b>
+        <span>Webhook delivery</span>
+      </div>
+    </div>
+
+    <section id="features" class="section-grid">
+      <div>
+        <p class="eyebrow">What It Does</p>
+        <h2>Fast capture, quiet storage.</h2>
+      </div>
+      <div class="copy">
+        <ul>
+          <li>Swipe up to save a note as a Markdown file.</li>
+          <li>Use iCloud Drive by default, or pick any Files-compatible folder.</li>
+          <li>Dictate notes with live transcription when typing is not convenient.</li>
+          <li>Connect a webhook with a simple verified connection link.</li>
+          <li>Fall back to local Files storage if the selected destination is unavailable.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="support" class="section-grid">
+      <div>
+        <p class="eyebrow">Support</p>
+        <h2>Need help?</h2>
+      </div>
+      <div class="copy support-card">
+        <p>Fling is a quick-capture app for saving notes as plain Markdown files.</p>
+        <p>By default, Fling saves notes to iCloud Drive. You can also choose any Files-compatible folder in Settings.</p>
+        <p>If your destination is unavailable, Fling tries to save the note locally in the Files app container so your note is not lost.</p>
+        <p>For help, email <a href="mailto:sober@duck.com">sober@duck.com</a> with your device model, iOS version, and what you were trying to do.</p>
+      </div>
+    </section>
+
+    <section id="privacy" class="section-grid">
+      <div>
+        <p class="eyebrow">Privacy</p>
+        <h2>Plain-language policy.</h2>
+      </div>
+      <div class="copy">
+        <p><strong>Effective date:</strong> June 1, 2026.</p>
+        <p>Fling does not require an account, does not include ads, and does not include analytics or tracking SDKs.</p>
+        <p>Fling stores app settings on your device, including preferences such as sound, haptics, text size, selected destination, and clear-gesture settings.</p>
+        <p>If you choose a custom folder, Fling stores a security-scoped folder bookmark so it can keep saving notes to that folder. If you connect a webhook, Fling stores the secret token in the iOS Keychain and stores non-secret connection details in app settings.</p>
+        <p>By default, Fling saves notes to the app's iCloud Drive folder. iCloud syncing is handled by Apple and your Apple ID settings. If you connect a webhook, your note content is sent to the webhook URL you configured.</p>
+        <p>Fling asks for microphone and speech recognition permission only if you use voice dictation. Dictation is handled through Apple's system speech-recognition services.</p>
+        <p>You can delete saved notes from the folder where they were saved. You can disconnect a webhook in Settings. You can remove local Fling data by deleting the app from your device.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="shell">
+    <p>Built by 47 Summers LLC.</p>
+  </footer>
+</body>
+</html>
