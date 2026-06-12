@@ -249,6 +249,28 @@
       text-underline-offset: 4px;
     }
 
+    code,
+    pre {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+    }
+
+    code {
+      font-size: 0.95em;
+    }
+
+    pre {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: var(--text);
+      font-size: 13px;
+      line-height: 1.5;
+      margin: 16px 0;
+      overflow-x: auto;
+      padding: 16px;
+      white-space: pre;
+    }
+
     footer {
       color: var(--muted);
       border-top: 1px solid var(--border);
@@ -284,6 +306,7 @@
     <nav aria-label="Fling page navigation">
       <a href="#features">Features</a>
       <a href="#support">Support</a>
+      <a href="#webhooks">Webhooks</a>
       <a href="#privacy">Privacy</a>
       <a href="index.html">Portfolio</a>
     </nav>
@@ -351,6 +374,46 @@
         <p>By default, Fling saves notes to iCloud Drive. You can also choose any Files-compatible folder in Settings.</p>
         <p>If your destination is unavailable, Fling tries to save the note locally in the Files app container so your note is not lost.</p>
         <p>For help, email <a href="mailto:sober@duck.com">sober@duck.com</a> with your device model, iOS version, and what you were trying to do.</p>
+      </div>
+    </section>
+
+    <section id="webhooks" class="section-grid">
+      <div>
+        <p class="eyebrow">Webhooks</p>
+        <h2>Connect your own app.</h2>
+      </div>
+      <div class="copy">
+        <p>Use a Fling connection link with a secret token and a short destination name.</p>
+        <pre><code>https://your-domain.example/fling-webhook?token=YOUR_SECRET_TOKEN&amp;slug=personal_notes</code></pre>
+        <p>Treat the full link as a secret. Fling removes <code>token</code>, <code>slug</code>, and <code>project_slug</code> before saving the endpoint URL, stores the token in the iOS Keychain, and keeps any other query parameters your endpoint needs.</p>
+        <ul>
+          <li>Remote servers must use HTTPS.</li>
+          <li>Local development endpoints can use localhost, 127.0.0.1, or .local local-network hosts.</li>
+          <li>Fling verifies with a HEAD request using <code>Authorization: Bearer YOUR_SECRET_TOKEN</code> and <code>X-Fling-Project: personal_notes</code>.</li>
+          <li>A 2xx response passes. A 405 response also passes, because many simple servers only implement POST.</li>
+        </ul>
+        <p>When you swipe a note to a webhook, Fling sends JSON:</p>
+        <pre><code>{
+  "project_slug": "personal_notes",
+  "title": "First line of the note",
+  "description": "Everything after the first line"
+}</code></pre>
+        <p>For a one-line note, <code>description</code> is omitted. If a webhook send fails, Fling saves the note to the Files app fallback.</p>
+        <pre><code>app.head("/fling-webhook", (req, res) =&gt; {
+  if (req.get("authorization") !== `Bearer ${process.env.FLING_TOKEN}`) {
+    return res.sendStatus(401);
+  }
+  res.sendStatus(204);
+});
+
+app.post("/fling-webhook", express.json(), (req, res) =&gt; {
+  if (req.get("authorization") !== `Bearer ${process.env.FLING_TOKEN}`) {
+    return res.sendStatus(401);
+  }
+
+  console.log(req.body.project_slug, req.body.title, req.body.description);
+  res.sendStatus(204);
+});</code></pre>
       </div>
     </section>
 
