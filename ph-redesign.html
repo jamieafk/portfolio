@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jamie's Products — Product Hunt Style</title>
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --coral: rgb(255, 97, 84);
+      --coral-hover: rgb(230, 80, 68);
+      --text-primary: rgb(16, 24, 40);
+      --text-secondary: rgb(52, 64, 84);
+      --text-muted: rgb(107, 114, 128);
+      --border: rgb(234, 236, 240);
+      --bg: rgb(255, 255, 255);
+      --bg-hover: rgb(242, 244, 247);
+      --bg-input: rgb(242, 244, 247);
+      --footer-bg: rgb(31, 41, 55);
+      --font: -apple-system, system-ui, "Segoe UI", Helvetica, Arial, sans-serif;
+    }
+
+    html { font-size: 16px; }
+    body {
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--text-primary);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* NAV */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--bg);
+      border-bottom: 2px solid var(--border);
+      height: 72px;
+    }
+    .nav-inner {
+      max-width: 1216px;
+      margin: 0 auto;
+      padding: 0 24px;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .nav-logo {
+      width: 40px;
+      height: 40px;
+      background: var(--coral);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .nav-logo span {
+      color: #fff;
+      font-size: 22px;
+      font-weight: 700;
+      line-height: 1;
+    }
+    .nav-search {
+      flex: 0 1 280px;
+      height: 40px;
+      background: var(--bg-input);
+      border: none;
+      border-radius: 9999px;
+      padding: 0 16px;
+      font-size: 15px;
+      color: var(--text-secondary);
+      outline: none;
+      font-family: var(--font);
+    }
+    .nav-search::placeholder { color: var(--text-muted); }
+    .nav-search:focus { box-shadow: 0 0 0 2px var(--coral); }
+    .nav-brand {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-left: auto;
+    }
+
+    /* LAYOUT */
+    .page {
+      max-width: 1216px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: grid;
+      grid-template-columns: 1fr 320px;
+      gap: 48px;
+      margin-top: 32px;
+    }
+    .main { min-width: 0; }
+
+    /* SECTION */
+    .section { margin-bottom: 40px; }
+    .section-title {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 8px;
+    }
+    .section-subtitle {
+      font-size: 14px;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+    }
+
+    /* PRODUCT CARD */
+    .product-card {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      padding: 16px;
+      margin: 0 -16px;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: background 0.2s ease;
+      position: relative;
+    }
+    .product-card:hover { background: var(--bg-hover); }
+    .product-card:hover .product-title-text { color: var(--coral); }
+    .product-card:hover .product-actions .action-btn { border-color: var(--border); }
+    .product-card:hover .product-link-icon { display: inline-block; }
+    .product-card + .product-card { border-top: 1px solid var(--border); }
+    .product-card:hover + .product-card,
+    .product-card + .product-card:hover { border-top-color: transparent; }
+
+    .product-thumb {
+      width: 80px;
+      height: 80px;
+      border-radius: 12px;
+      overflow: hidden;
+      flex-shrink: 0;
+      background: var(--bg-input);
+    }
+    .product-thumb img { width: 100%; height: 100%; object-fit: cover; }
+
+    .product-info { flex: 1; min-width: 0; padding-top: 2px; }
+    .product-title {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--text-primary);
+      display: flex;
+      align-items: baseline;
+      gap: 2px;
+    }
+    .product-title .rank { color: var(--text-muted); margin-right: 2px; }
+    .product-title-text { transition: color 0.2s; }
+    .product-link-icon {
+      display: none;
+      margin-left: 4px;
+      opacity: 0.4;
+      vertical-align: middle;
+      width: 14px;
+      height: 14px;
+    }
+
+    .product-tagline {
+      font-size: 15px;
+      color: var(--text-secondary);
+      margin-top: 2px;
+      line-height: 1.4;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .product-tags {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      margin-top: 6px;
+      flex-wrap: wrap;
+    }
+    .product-tags .tag-icon { width: 14px; height: 14px; color: var(--text-muted); flex-shrink: 0; }
+    .product-tag {
+      font-size: 13px;
+      color: var(--text-secondary);
+      text-decoration: none;
+    }
+    .product-tag:hover { text-decoration: underline; }
+    .product-tag-sep { font-size: 8px; color: var(--text-muted); line-height: 1; }
+
+    .product-actions { display: flex; gap: 4px; flex-shrink: 0; align-self: center; }
+    .action-btn {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2px;
+      width: 56px;
+      height: 56px;
+      border-radius: 8px;
+      border: 1px solid transparent;
+      background: transparent;
+      cursor: pointer;
+      transition: all 0.15s;
+      font-family: var(--font);
+    }
+    .action-btn:hover {
+      background: var(--bg);
+      border-color: var(--border) !important;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+    }
+    .action-btn .action-icon { width: 18px; height: 18px; color: var(--text-secondary); }
+    .action-btn .count { font-size: 13px; font-weight: 600; color: var(--text-secondary); }
+    .action-btn.upvote:hover .action-icon { color: var(--coral); }
+    .action-btn.upvote:hover .count { color: var(--coral); }
+    .action-btn.voted { border-color: var(--coral) !important; background: rgba(255,97,84,0.06); }
+    .action-btn.voted .action-icon { color: var(--coral); }
+    .action-btn.voted .count { color: var(--coral); }
+
+    /* QUOTE CARD */
+    .quote-card {
+      background: var(--bg-input);
+      border-radius: 12px;
+      padding: 24px;
+    }
+    .sidebar-quote {
+      margin: 0;
+      border: none;
+    }
+    .sidebar-quote p {
+      font-size: 15px;
+      font-style: italic;
+      color: var(--text-secondary);
+      line-height: 1.6;
+      margin-bottom: 12px;
+    }
+    .sidebar-quote cite {
+      font-size: 13px;
+      font-style: normal;
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+
+    /* SIDEBAR */
+    .sidebar-section { margin-bottom: 32px; }
+
+    .launch-cal {
+      background: var(--bg-input); border-radius: 12px; padding: 20px;
+    }
+    .launch-cal-title { font-size: 14px; font-weight: 700; color: var(--text-primary); margin-bottom: 12px; }
+    .launch-cal-item { display: flex; align-items: center; gap: 10px; padding: 8px 0; }
+    .launch-cal-icon {
+      width: 36px; height: 36px; border-radius: 8px;
+      display: flex; align-items: center; justify-content: center; font-size: 16px; flex-shrink: 0;
+    }
+    .launch-cal-text { font-size: 13px; font-weight: 600; color: var(--text-primary); line-height: 1.3; }
+    .launch-cal-text small { display: block; font-weight: 400; color: var(--text-muted); font-size: 12px; }
+
+    /* FOOTER */
+    .footer { background: var(--footer-bg); margin-top: 64px; padding: 24px; }
+    .footer-inner { max-width: 1216px; margin: 0 auto; }
+    .footer-bottom {
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .footer-text { font-size: 14px; color: rgba(255,255,255,0.6); }
+    .footer-copyright { font-size: 14px; color: rgba(255,255,255,0.4); }
+
+    /* DETAIL OVERLAY */
+    .overlay {
+      position: fixed; inset: 0; z-index: 200;
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; pointer-events: none; transition: opacity 0.2s;
+    }
+    .overlay.open { opacity: 1; pointer-events: auto; }
+    .overlay-backdrop { position: absolute; inset: 0; background: rgba(0,0,0,0.5); }
+    .overlay-panel {
+      position: relative; background: #fff; border-radius: 16px;
+      max-width: 720px; width: 90%; max-height: 85vh; overflow-y: auto;
+      padding: 32px; box-shadow: 0 24px 48px rgba(0,0,0,0.2);
+    }
+    .overlay-close {
+      position: absolute; top: 16px; right: 16px; width: 32px; height: 32px;
+      border-radius: 50%; border: none; background: var(--bg-hover);
+      font-size: 18px; cursor: pointer; display: flex; align-items: center;
+      justify-content: center; color: var(--text-secondary);
+    }
+    .overlay-close:hover { background: var(--border); }
+    .overlay-hero { width: 100%; border-radius: 12px; margin-bottom: 24px; border: 1px solid var(--border); }
+    .overlay-header { display: flex; align-items: flex-start; gap: 16px; margin-bottom: 20px; }
+    .overlay-icon {
+      width: 64px; height: 64px; border-radius: 16px; overflow: hidden;
+      flex-shrink: 0; background: var(--bg-input);
+    }
+    .overlay-icon img { width: 100%; height: 100%; object-fit: cover; }
+    .overlay-title { font-size: 24px; font-weight: 700; }
+    .overlay-tagline { font-size: 16px; color: var(--text-secondary); margin-top: 4px; }
+    .overlay-upvote {
+      margin-left: auto; display: flex; flex-direction: column; align-items: center; gap: 2px;
+      padding: 12px 20px; border: 2px solid var(--border); border-radius: 12px;
+      background: transparent; cursor: pointer; font-family: var(--font); transition: all 0.15s; flex-shrink: 0;
+    }
+    .overlay-upvote:hover { border-color: var(--coral); color: var(--coral); }
+    .overlay-upvote .upvote-arrow { width: 20px; height: 20px; }
+    .overlay-upvote .count { font-size: 14px; font-weight: 700; }
+    .overlay-desc { font-size: 15px; color: var(--text-secondary); line-height: 1.6; margin-bottom: 24px; }
+    .overlay-features-title {
+      font-size: 14px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.05em; color: var(--text-muted); margin-bottom: 12px;
+    }
+    .overlay-features { list-style: none; }
+    .overlay-features li {
+      padding: 8px 0; font-size: 15px; color: var(--text-primary);
+      border-bottom: 1px solid var(--border); display: flex; align-items: flex-start; gap: 8px;
+    }
+    .overlay-features li:last-child { border-bottom: none; }
+    .overlay-features li::before { content: "\2713"; color: var(--coral); font-weight: 700; flex-shrink: 0; }
+
+    /* RESPONSIVE */
+    @media (max-width: 960px) {
+      .page { grid-template-columns: 1fr; gap: 32px; }
+      .sidebar { display: none; }
+      .nav-search { flex: 1; }
+    }
+    @media (max-width: 600px) {
+      .nav-inner { padding: 0 16px; }
+      .page { padding: 0 16px; }
+      .product-thumb { width: 60px; height: 60px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav-inner">
+      <div class="nav-logo"><span>J</span></div>
+      <input class="nav-search" type="text" placeholder="Search products... (Cmd+K)">
+      <div class="nav-brand">Jamie</div>
+    </div>
+  </nav>
+
+  <div class="page">
+    <div class="main" id="main"></div>
+
+    <aside class="sidebar">
+      <div class="sidebar-section quote-card">
+        <blockquote class="sidebar-quote">
+          <p>AI is like a jetpack for those crafting their own personal careers and possessing high agency&hellip; you can do more stuff than you ever could before.</p>
+          <cite>&mdash; Bill Gurley</cite>
+        </blockquote>
+      </div>
+
+      <div class="sidebar-section launch-cal">
+        <div class="launch-cal-title">Upcoming from Jamie</div>
+        <div class="launch-cal-item">
+          <div class="launch-cal-icon" style="background: #FEF3C7;">&#128640;</div>
+          <div class="launch-cal-text">Something new<small>Coming soon</small></div>
+        </div>
+        <div class="launch-cal-item">
+          <div class="launch-cal-icon" style="background: #DBEAFE;">&#128295;</div>
+          <div class="launch-cal-text">Asoona v2<small>In progress</small></div>
+        </div>
+        <div class="launch-cal-item">
+          <div class="launch-cal-icon" style="background: #F3E8FF;">&#128241;</div>
+          <div class="launch-cal-text">Fling for Android<small>Planned</small></div>
+        </div>
+      </div>
+    </aside>
+  </div>
+
+  <div class="overlay" id="overlay">
+    <div class="overlay-backdrop"></div>
+    <div class="overlay-panel">
+      <button class="overlay-close">&times;</button>
+      <img class="overlay-hero" id="overlay-hero" src="" alt="">
+      <div class="overlay-header">
+        <div class="overlay-icon"><img id="overlay-icon" src="" alt=""></div>
+        <div>
+          <div class="overlay-title" id="overlay-title"></div>
+          <div class="overlay-tagline" id="overlay-tagline"></div>
+        </div>
+        <button class="overlay-upvote" id="overlay-upvote">
+          <svg class="upvote-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 15l-6-6-6 6"/></svg>
+          <span class="count" id="overlay-upvote-count"></span>
+        </button>
+      </div>
+      <p class="overlay-desc" id="overlay-desc"></p>
+      <div id="overlay-features-section">
+        <div class="overlay-features-title">What it does</div>
+        <ul class="overlay-features" id="overlay-features"></ul>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-bottom">
+        <span class="footer-text">Things I've built with AI</span>
+        <span class="footer-copyright">&copy; 2026 Jamie</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      "use strict";
+
+      var CATEGORIES = {
+        "project-invoice": ["Invoicing", "Freelance Tools", "PDF"],
+        "asoona": ["Project Management", "AI Tools", "Productivity"],
+        "custom-superpowers": ["Developer Tools", "AI Agents", "Claude Code"],
+        "pfin": ["Finance", "Personal Tools", "Data"],
+        "swish": ["iOS", "Note Taking", "Productivity"],
+        "health-dash": ["Health", "Dashboards", "Garmin"],
+        "ai-portfolio": ["Portfolio", "Static Sites", "AI Tools"],
+        "copy-jamie": ["Copywriting", "Portfolio", "Marketing"],
+        "yt-transcripts": ["YouTube", "AI Summarization", "Productivity"],
+        "bookwise": ["Reading", "Personal Tools", "Library"],
+        "fetch-media-via-telegram": ["Telegram Bot", "Media", "Automation"],
+        "ai-hair-stylist": ["AI Image Generation", "Personal", "Fun"]
+      };
+
+      var UPVOTES = {
+        "project-invoice": 347, "asoona": 289, "custom-superpowers": 234,
+        "pfin": 198, "swish": 176, "health-dash": 165, "ai-portfolio": 156,
+        "copy-jamie": 134, "yt-transcripts": 128, "bookwise": 112,
+        "fetch-media-via-telegram": 97, "ai-hair-stylist": 203
+      };
+
+      var COMMENTS = {
+        "project-invoice": 42, "asoona": 38, "custom-superpowers": 27,
+        "pfin": 19, "swish": 23, "health-dash": 15, "ai-portfolio": 31,
+        "copy-jamie": 11, "yt-transcripts": 18, "bookwise": 14,
+        "fetch-media-via-telegram": 8, "ai-hair-stylist": 56
+      };
+
+      // No sections needed — single flat list
+
+      function createSvg(type) {
+        var svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+        svg.setAttribute("viewBox", "0 0 24 24");
+        svg.setAttribute("fill", "none");
+        svg.setAttribute("stroke", "currentColor");
+
+        var path;
+        switch(type) {
+          case "comment":
+            svg.classList.add("action-icon");
+            svg.setAttribute("stroke-width", "2");
+            path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+            path.setAttribute("d", "M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z");
+            svg.appendChild(path);
+            break;
+          case "upvote":
+            svg.classList.add("action-icon");
+            svg.setAttribute("stroke-width", "2.5");
+            path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+            path.setAttribute("d", "M18 15l-6-6-6 6");
+            svg.appendChild(path);
+            break;
+          case "tag":
+            svg.classList.add("tag-icon");
+            svg.setAttribute("stroke-width", "2");
+            path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+            path.setAttribute("d", "M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z");
+            svg.appendChild(path);
+            var line = document.createElementNS("http://www.w3.org/2000/svg", "line");
+            line.setAttribute("x1", "7"); line.setAttribute("y1", "7");
+            line.setAttribute("x2", "7.01"); line.setAttribute("y2", "7");
+            svg.appendChild(line);
+            break;
+          case "link":
+            svg.classList.add("product-link-icon");
+            svg.setAttribute("width", "14");
+            svg.setAttribute("height", "14");
+            svg.setAttribute("stroke-width", "2");
+            var p1 = document.createElementNS("http://www.w3.org/2000/svg", "path");
+            p1.setAttribute("d", "M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6");
+            svg.appendChild(p1);
+            var p2 = document.createElementNS("http://www.w3.org/2000/svg", "path");
+            p2.setAttribute("d", "M15 3h6v6");
+            svg.appendChild(p2);
+            var p3 = document.createElementNS("http://www.w3.org/2000/svg", "path");
+            p3.setAttribute("d", "M10 14L21 3");
+            svg.appendChild(p3);
+            break;
+          // Unused SVG types removed
+        }
+        return svg;
+      }
+
+      function createCard(project, rank) {
+        var card = document.createElement("div");
+        card.className = "product-card";
+
+        // Thumbnail
+        var thumb = document.createElement("div");
+        thumb.className = "product-thumb";
+        if (project.screenshots && project.screenshots.length > 0) {
+          var img = document.createElement("img");
+          img.src = project.screenshots[0];
+          img.alt = project.title;
+          img.loading = "lazy";
+          thumb.appendChild(img);
+        }
+        card.appendChild(thumb);
+
+        // Info
+        var info = document.createElement("div");
+        info.className = "product-info";
+
+        var titleRow = document.createElement("div");
+        titleRow.className = "product-title";
+        var rankSpan = document.createElement("span");
+        rankSpan.className = "rank";
+        rankSpan.textContent = rank + ".";
+        titleRow.appendChild(rankSpan);
+        var titleText = document.createElement("span");
+        titleText.className = "product-title-text";
+        titleText.textContent = " " + project.title;
+        titleRow.appendChild(titleText);
+        titleRow.appendChild(createSvg("link"));
+        info.appendChild(titleRow);
+
+        var tagline = document.createElement("div");
+        tagline.className = "product-tagline";
+        tagline.textContent = project.description;
+        info.appendChild(tagline);
+
+        var tags = document.createElement("div");
+        tags.className = "product-tags";
+        tags.appendChild(createSvg("tag"));
+        var cats = CATEGORIES[project.slug] || ["AI", "Tools"];
+        cats.forEach(function(cat, i) {
+          if (i > 0) {
+            var sep = document.createElement("span");
+            sep.className = "product-tag-sep";
+            sep.textContent = "\u00b7";
+            tags.appendChild(sep);
+          }
+          var a = document.createElement("a");
+          a.className = "product-tag";
+          a.href = "#";
+          a.textContent = cat;
+          a.addEventListener("click", function(e) { e.stopPropagation(); });
+          tags.appendChild(a);
+        });
+        info.appendChild(tags);
+        card.appendChild(info);
+
+        // Actions
+        var actions = document.createElement("div");
+        actions.className = "product-actions";
+
+        var commentBtn = document.createElement("button");
+        commentBtn.className = "action-btn comment";
+        commentBtn.appendChild(createSvg("comment"));
+        var commentCount = document.createElement("span");
+        commentCount.className = "count";
+        commentCount.textContent = COMMENTS[project.slug] || 0;
+        commentBtn.appendChild(commentCount);
+        commentBtn.addEventListener("click", function(e) { e.stopPropagation(); });
+        actions.appendChild(commentBtn);
+
+        var upvoteBtn = document.createElement("button");
+        upvoteBtn.className = "action-btn upvote";
+        upvoteBtn.appendChild(createSvg("upvote"));
+        var upvoteCount = document.createElement("span");
+        upvoteCount.className = "count";
+        upvoteCount.textContent = UPVOTES[project.slug] || 0;
+        upvoteBtn.appendChild(upvoteCount);
+        upvoteBtn.addEventListener("click", function(e) {
+          e.stopPropagation();
+          var count = upvoteBtn.querySelector(".count");
+          var current = parseInt(count.textContent, 10);
+          if (upvoteBtn.classList.contains("voted")) {
+            upvoteBtn.classList.remove("voted");
+            count.textContent = current - 1;
+          } else {
+            upvoteBtn.classList.add("voted");
+            count.textContent = current + 1;
+          }
+        });
+        actions.appendChild(upvoteBtn);
+        card.appendChild(actions);
+
+        card.addEventListener("click", function() { openOverlay(project); });
+        return card;
+      }
+
+      // Removed newsletter CTA and sidebar threads — not needed
+
+      function openOverlay(project) {
+        var overlay = document.getElementById("overlay");
+        document.getElementById("overlay-title").textContent = project.title;
+
+        var firstSentence = project.description.split(".")[0] + ".";
+        document.getElementById("overlay-tagline").textContent = firstSentence;
+        document.getElementById("overlay-desc").textContent = project.description;
+        document.getElementById("overlay-upvote-count").textContent = UPVOTES[project.slug] || 0;
+
+        var hero = document.getElementById("overlay-hero");
+        var icon = document.getElementById("overlay-icon");
+        if (project.screenshots && project.screenshots.length > 0) {
+          hero.src = project.screenshots[0];
+          hero.alt = project.title + " screenshot";
+          hero.style.display = "block";
+          icon.src = project.screenshots[0];
+          icon.alt = project.title;
+        } else {
+          hero.style.display = "none";
+        }
+
+        var features = document.getElementById("overlay-features");
+        var featSection = document.getElementById("overlay-features-section");
+        while (features.firstChild) { features.removeChild(features.firstChild); }
+        if (project.features && project.features.length > 0) {
+          project.features.forEach(function(f) {
+            var li = document.createElement("li");
+            li.textContent = f;
+            features.appendChild(li);
+          });
+          featSection.style.display = "block";
+        } else {
+          featSection.style.display = "none";
+        }
+
+        overlay.classList.add("open");
+        document.body.style.overflow = "hidden";
+      }
+
+      function closeOverlay() {
+        document.getElementById("overlay").classList.remove("open");
+        document.body.style.overflow = "";
+      }
+
+      document.querySelector(".overlay-backdrop").addEventListener("click", closeOverlay);
+      document.querySelector(".overlay-close").addEventListener("click", closeOverlay);
+      document.addEventListener("keydown", function(e) {
+        if (e.key === "Escape") closeOverlay();
+      });
+
+      async function init() {
+        var res = await fetch("data/projects.json");
+        var data = await res.json();
+        var projects = data.projects.sort(function(a, b) { return a.order - b.order; });
+
+        var featured = projects.filter(function(p) { return p.featured; });
+        var rest = projects.filter(function(p) { return !p.featured; });
+        var allProjects = featured.concat(rest);
+
+        var main = document.getElementById("main");
+
+        var sectionEl = document.createElement("div");
+        sectionEl.className = "section";
+
+        var title = document.createElement("h2");
+        title.className = "section-title";
+        title.textContent = "Top Products Launched by Jamie";
+        sectionEl.appendChild(title);
+
+        var sub = document.createElement("p");
+        sub.className = "section-subtitle";
+        sub.textContent = "Things I\u2019ve built with AI";
+        sectionEl.appendChild(sub);
+
+        allProjects.forEach(function(project, i) {
+          sectionEl.appendChild(createCard(project, i + 1));
+        });
+
+        main.appendChild(sectionEl);
+      }
+
+      init();
+    })();
+  </script>
+</body>
+</html>
